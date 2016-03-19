@@ -1,45 +1,72 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>MessageBoard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-    <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Message Board</a>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
-</html>
+<!--メッセージ一覧 表示箇所-->
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    メッセージ一覧
-  </div>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
     
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
-  </div>
-</div>
+    <div class="panel panel-info">
+      
+      <div class="panel-heading">
+      <p>メッセージ一覧</p>
+      </div>
+      
+      <div class="panel-body">
+      
+        <% @messages.each do |message| %>
+        
+        <!--名前の入力をラベルで出している-->
+        <span class="label label-info"><%= message.name %></span>
+    
+        <!--メッセージ本文の表示-->
+        <%= message.body %>
+        <br>
+        <% end %>
+    
+      </div>
+      
+　　</div>
+　　
+    <div class="col-sm-3"></div>
+  </div><!-- col-sm-->
+</div><!-- row-->
 
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
+   
+
+
+<!--名前&メッセージ入力箇所-->
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    
+    <%= form_for(@message) do |f| %>
+    
+    <div class=input_name>名前</div>
+    <div class=name_content>
+  　<%= f.text_area :name, size: "18x1", :placeholder => "名前を入力"%>
+    </div>
+    <br>
+
+    <div class=input_message>メッセージ</div>
+    <div class=message_content>
+  　<%= f.text_area :body, size: "45x2", :placeholder => "メッセージを入力" %>
+  　</div>
+  　<br>
+
+　　<!--これは送信ボタン-->
+　　<div class="btm">
+  　<%= f.submit "送信", class: "btm btm-sm btn-primary" %>
+    </div>
+    
+    
+    　　<% end %>
+    
+    <div class="col-sm-4"></div>
+  </div><!-- col-sm-->
+</div><!-- row-->    
+    
+    
+
+
+

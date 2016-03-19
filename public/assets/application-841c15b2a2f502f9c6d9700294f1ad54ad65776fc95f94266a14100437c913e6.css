@@ -12,9 +12,27 @@
  *
  *
  *
- *= require_self
- *= require custom_style.css
- *= require_tree .
- *
+
+
+
  */
+
  
+
+
+body	{font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;}
+
+
+.container{font-size: 25px;
+	text-align: center;
+	color: #ffffff;
+	
+}
+
+
+.panel-heading{font-size: 20px;
+	text-align: center;
+	color: #000000
+}
+
+.btm{text-align: right;}
