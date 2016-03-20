@@ -39,6 +39,26 @@
 
 <%= form_for(@message, html: {class: "form-horizontal"}) do |f| %>
 
+<!--ここからエラーメッセージ表示箇所-->
+
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+
+
+<!--ここまでエラーメッセージ表示箇所-->
+
+
+
 
 <!--名前入力欄-->
   <div class="form-group">
