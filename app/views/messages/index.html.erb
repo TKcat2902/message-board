@@ -31,42 +31,50 @@
 </div><!-- row-->
 
 
-   
+
 
 
 <!--名前&メッセージ入力箇所-->
 
-<div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4">
-    
-    <%= form_for(@message) do |f| %>
-    
-    <div class=input_name>名前</div>
-    <div class=name_content>
-  　<%= f.text_area :name, size: "18x1", :placeholder => "名前を入力"%>
-    </div>
-    <br>
 
-    <div class=input_message>メッセージ</div>
-    <div class=message_content>
-  　<%= f.text_area :body, size: "45x2", :placeholder => "メッセージを入力" %>
-  　</div>
-  　<br>
+<%= form_for(@message, html: {class: "form-horizontal"}) do |f| %>
 
-　　<!--これは送信ボタン-->
-　　<div class="btm">
-  　<%= f.submit "送信", class: "btm btm-sm btn-primary" %>
+
+<!--名前入力欄-->
+  <div class="form-group">
+    <label for="inputName" class="col-sm-4 control-label">名前</label>
+    <div class="col-sm-4">
+
+     <%= f.text_field :name, class:"form-control", id:"inputName", placeholder:"名前" %>
+
     </div>
-    
-    
-    　　<% end %>
-    
     <div class="col-sm-4"></div>
-  </div><!-- col-sm-->
-</div><!-- row-->    
     
-    
+  </div>
 
 
+<!--内容入力欄-->
+  <div class="form-group">
+    <label for="inputMessage"  class="col-sm-4 control-label">メッセージ</label>
+    <div class="col-sm-4">
 
+    <%= f.text_area :body, class:"form-control", id:"inputMessage", placeholder:"メッセージ" %>
+
+    </div>
+    <div class="col-sm-4"></div>
+   
+  </div>
+
+
+<!--送信ボタン-->
+  <div class="form-group">
+   <div class="col-sm-offset-8 col-sm-4">
+
+   <%= f.submit "送信", class: "btm btm-sm btn-primary" %>
+
+   </div>
+  </div>
+
+
+  
+<% end %>
