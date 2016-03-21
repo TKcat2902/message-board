@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   
   # 年齢は0より大きい数値を入力
   validates :age , numericality: {
-            only_integer: true, greater_than: 0
+            only_integer: true, greater_than_or_equal_to: 0
           }
   
   
