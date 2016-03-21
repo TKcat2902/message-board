@@ -13,7 +13,7 @@
  *
  *
  *= require_self
- *= require custom-style.css
+ *= require custom.css
  *= require_tree .
  *
  */
