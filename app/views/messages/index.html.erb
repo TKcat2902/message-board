@@ -17,7 +17,11 @@
         
         <!--名前の入力をラベルで出している-->
         <span class="label label-info"><%= message.name %></span>
-    
+        
+        <!--年齢の入力を出力-->
+        <%= message.age %>歳：
+        
+        
         <!--メッセージ本文の表示-->
         <%= message.body %>
        (<%= link_to "edit" , edit_message_path(message) %>
