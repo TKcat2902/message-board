@@ -19,10 +19,19 @@
       </div>
     </div>
   </nav>
+  
+  <div class="container">
 
-<!--ここがメッセージボード部分に該当-->
+  <!--フラッシュメッセージ「メッセージを編集しました」表示部分に該当-->
+    <% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+    <% end %>
+
+  <!--メッセージボード表示部分に該当-->
   <%= yield %>
-
+   </div>
 
 </body>
 </html>
